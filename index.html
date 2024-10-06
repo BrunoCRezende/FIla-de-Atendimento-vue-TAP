@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fila de Atendimento</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app" class="container">
+        <h1>Fila de Atendimento</h1>
+        
+        <div>
+            <button class="addbutton" @click="addToNormalQueue">Adicionar Senha Normal</button>
+            <button class="addbutton" @click="addToSpecialQueue">Adicionar Senha Especial</button>
+        </div>
+
+        <div>
+            <button class="attendbutton" @click="attendNormalQueue">Atender Senha Normal</button>
+            <button class="attendbutton" @click="attendSpecialQueue">Atender Senha Especial</button>
+        </div>
+
+        <div class="queue">
+            <h2>Fila de Atendimento:</h2>
+            <div v-for="(senha, index) in combinedQueue" :key="index" class="queue-item">
+                {{ senha }}
+            </div>
+        </div>
+
+        <div v-if="currentPassword">
+            <h2>Atendendo: {{ currentPassword }}</h2>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
